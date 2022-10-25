@@ -1,0 +1,15 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-myfitrackr-staging-154456-authRole",
+      "UnauthRoleArn": "arn:aws:iam::617050463594:role/amplify-myfitrackr-staging-154456-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::617050463594:role/amplify-myfitrackr-staging-154456-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-myfitrackr-staging-154456-deployment",
+      "UnauthRoleName": "amplify-myfitrackr-staging-154456-unauthRole",
+      "StackName": "amplify-myfitrackr-staging-154456",
+      "StackId": "arn:aws:cloudformation:us-east-1:617050463594:stack/amplify-myfitrackr-staging-154456/cf8cd1f0-53b2-11ed-ae7e-12b98d98bcb1",
+      "AmplifyAppId": "d1aszk9ozv7tz9"
+    }
+  }
+}
