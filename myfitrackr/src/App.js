@@ -7,22 +7,52 @@ import {
   NavBar 
 } from './ui-components';
 import { 
-  Footer 
-} from './ui-components';
+  withAuthenticator 
+} from '@aws-amplify/ui-react';
+import { 
+  Storage 
+} from '@aws-amplify/storage';
 
 
-function App() {
+function App({ user, signOut}) {
+
+  async function saveFile() {
+    await Storage.put("test.txt", "Hello");
+  }
+
+  const navbarOverrides = {
+    Button: {
+      onClick: signOut,
+    },
+    image: {
+      src: user?.attributes?.profile
+
+    },
+    "Add User": {
+      style: {
+        cursor: "pointer"
+      },
+      onClick: () => {
+        saveFile()
+        alert("Disabled: DEMO Purposes Only")
+      }
+    },
+  }
   return (
     <div className="App">
-      
-      <NavBar width={"100%"}/>
+      <NavBar width={"100%"} overrides={navbarOverrides} />
       <header className="App-header">
-      <Users />
+        <Users 
+          overrideItems={({ item, index }) => ({
+            overrides: {
+              Button: { color: "black"},
+            },
+          })}
+        />
       </header>
-      <Footer width={"100%"}/>
       
     </div>
   );
 }
 
-export default App;
+export default withAuthenticator(App);

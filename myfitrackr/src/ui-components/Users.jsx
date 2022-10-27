@@ -28,9 +28,8 @@ export default function Users(props) {
   return (
     <Collection
       type="grid"
-      isSearchable={true}
-      isPaginated={true}
-      searchPlaceholder="Search..."
+      searchPlaceholder="Search"
+      itemsPerPage={4}
       templateColumns="1fr 1fr 1fr 1fr"
       autoFlow="row"
       alignItems="stretch"

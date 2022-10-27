@@ -57,7 +57,7 @@ export default function MarketingPricing(props) {
           <Text
             fontFamily="Inter"
             fontSize="24px"
-            fontWeight="400"
+            fontWeight="600"
             color="rgba(13,26,38,1)"
             lineHeight="30px"
             textAlign="center"
@@ -394,7 +394,7 @@ export default function MarketingPricing(props) {
           <Text
             fontFamily="Inter"
             fontSize="24px"
-            fontWeight="400"
+            fontWeight="600"
             color="rgba(13,26,38,1)"
             lineHeight="30px"
             textAlign="center"
@@ -731,7 +731,7 @@ export default function MarketingPricing(props) {
           <Text
             fontFamily="Inter"
             fontSize="24px"
-            fontWeight="400"
+            fontWeight="600"
             color="rgba(13,26,38,1)"
             lineHeight="30px"
             textAlign="center"

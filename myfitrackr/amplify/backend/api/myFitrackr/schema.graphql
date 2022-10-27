@@ -1,4 +1,4 @@
-type MyfitrakrDBM @model @auth(rules: [{allow: public}]) {
+type MyfitrakrDBM @model @auth(rules: [{allow: public}, {allow: owner}]) {
   id: ID!
   alias: String!
   name: String!

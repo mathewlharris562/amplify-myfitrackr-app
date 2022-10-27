@@ -87,7 +87,7 @@ export default function ProductDetail(props) {
             <Text
               fontFamily="Inter"
               fontSize="24px"
-              fontWeight="400"
+              fontWeight="600"
               color="rgba(13,26,38,1)"
               lineHeight="30px"
               textAlign="left"
@@ -164,7 +164,7 @@ export default function ProductDetail(props) {
             <Text
               fontFamily="Inter"
               fontSize="16px"
-              fontWeight="400"
+              fontWeight="800"
               color="rgba(13,26,38,1)"
               lineHeight="20px"
               textAlign="left"
@@ -241,7 +241,7 @@ export default function ProductDetail(props) {
             <Text
               fontFamily="Inter"
               fontSize="16px"
-              fontWeight="400"
+              fontWeight="800"
               color="rgba(13,26,38,1)"
               lineHeight="20px"
               textAlign="left"
@@ -317,7 +317,7 @@ export default function ProductDetail(props) {
         <Text
           fontFamily="Inter"
           fontSize="24px"
-          fontWeight="400"
+          fontWeight="600"
           color="rgba(13,26,38,1)"
           lineHeight="30px"
           textAlign="left"

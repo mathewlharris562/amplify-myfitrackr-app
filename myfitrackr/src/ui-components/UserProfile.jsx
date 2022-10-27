@@ -8,24 +8,18 @@
 import * as React from "react";
 import {
   getOverrideProps,
-  useDataStoreDeleteAction,
+  useNavigateAction,
 } from "@aws-amplify/ui-react/internal";
-import { MyfitrakrDBM } from "../models";
-import { schema } from "../models/schema";
-import { Button, Flex, Image, Text } from "@aws-amplify/ui-react";
+import { Button, Flex, Image, Text, View } from "@aws-amplify/ui-react";
 export default function UserProfile(props) {
   const { myfitrakrDBM, overrides, ...rest } = props;
-  const buttonThreeFourFiveOneTwoSixNineFourOnClick = useDataStoreDeleteAction({
-    id: myfitrakrDBM?.id,
-    model: MyfitrakrDBM,
-    schema: schema,
-  });
+  const buttonOnClick = useNavigateAction({ type: "reload" });
   return (
     <Flex
       gap="24px"
       direction="column"
       width="320px"
-      height="591px"
+      height="515px"
       justifyContent="flex-start"
       alignItems="center"
       position="relative"
@@ -35,36 +29,30 @@ export default function UserProfile(props) {
       {...rest}
       {...getOverrideProps(overrides, "UserProfile")}
     >
-      <Button
-        display="flex"
-        direction="row"
-        width="unset"
-        height="unset"
-        justifyContent="center"
-        alignItems="center"
+      <View
+        width="252px"
+        height="27px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
+        overflow="hidden"
         shrink="0"
-        alignSelf="stretch"
         position="relative"
-        padding="8px 16px 8px 16px"
-        size="large"
-        isDisabled={false}
-        variation="link"
-        children="Delete"
-        onClick={() => {
-          buttonThreeFourFiveOneTwoSixNineFourOnClick();
-        }}
-        {...getOverrideProps(overrides, "Button34512694")}
-      ></Button>
+        padding="0px 0px 0px 0px"
+        {...getOverrideProps(overrides, "Frame 418")}
+      ></View>
       <Image
-        width="160px"
-        height="160px"
+        width="170px"
+        height="170px"
         display="block"
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
         shrink="0"
         position="relative"
-        borderRadius="160px"
+        border="5px SOLID rgba(255,153,0,1)"
+        borderRadius="165px"
         padding="0px 0px 0px 0px"
         objectFit="cover"
         src={myfitrakrDBM?.image}
@@ -86,7 +74,7 @@ export default function UserProfile(props) {
           fontFamily="Inter"
           fontSize="20px"
           fontWeight="700"
-          color="rgba(255,255,255,1)"
+          color="rgba(255,153,0,1)"
           lineHeight="25px"
           textAlign="center"
           display="block"
@@ -149,7 +137,7 @@ export default function UserProfile(props) {
         ></Text>
       </Flex>
       <Flex
-        gap="16px"
+        gap="6px"
         direction="row"
         width="unset"
         height="unset"
@@ -162,15 +150,15 @@ export default function UserProfile(props) {
       >
         <Text
           fontFamily="Inter"
-          fontSize="16px"
-          fontWeight="400"
-          color="rgba(255,255,255,1)"
+          fontSize="20px"
+          fontWeight="700"
+          color="rgba(255,0,0,1)"
           lineHeight="24px"
           textAlign="center"
           display="block"
           direction="column"
           justifyContent="unset"
-          letterSpacing="0.01px"
+          letterSpacing="0.05px"
           width="unset"
           height="unset"
           gap="unset"
@@ -179,8 +167,52 @@ export default function UserProfile(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children={myfitrakrDBM?.fitgroup}
-          {...getOverrideProps(overrides, "Workout Style")}
+          children="LIVE"
+          {...getOverrideProps(overrides, "LIVE")}
+        ></Text>
+        <Text
+          fontFamily="Inter"
+          fontSize="20px"
+          fontWeight="400"
+          color="rgba(255,255,255,1)"
+          lineHeight="24px"
+          textAlign="center"
+          display="block"
+          direction="column"
+          justifyContent="unset"
+          letterSpacing="0.05px"
+          width="unset"
+          height="unset"
+          gap="unset"
+          alignItems="unset"
+          shrink="0"
+          position="relative"
+          padding="0px 0px 0px 0px"
+          whiteSpace="pre-wrap"
+          children={myfitrakrDBM?.workout}
+          {...getOverrideProps(overrides, "Push-ups:")}
+        ></Text>
+        <Text
+          fontFamily="Inter"
+          fontSize="24px"
+          fontWeight="700"
+          color="rgba(255,255,255,1)"
+          lineHeight="24px"
+          textAlign="center"
+          display="block"
+          direction="column"
+          justifyContent="unset"
+          letterSpacing="0.09px"
+          width="unset"
+          height="unset"
+          gap="unset"
+          alignItems="unset"
+          shrink="0"
+          position="relative"
+          padding="0px 0px 0px 0px"
+          whiteSpace="pre-wrap"
+          children={myfitrakrDBM?.count}
+          {...getOverrideProps(overrides, "10")}
         ></Text>
       </Flex>
       <Button
@@ -194,12 +226,15 @@ export default function UserProfile(props) {
         shrink="0"
         alignSelf="stretch"
         position="relative"
-        backgroundColor="rgba(191,128,64,1)"
+        backgroundColor="rgba(255,153,0,1)"
         size="large"
         isDisabled={false}
         variation="primary"
         children="Update"
-        {...getOverrideProps(overrides, "Button34512689")}
+        onClick={() => {
+          buttonOnClick();
+        }}
+        {...getOverrideProps(overrides, "Button")}
       ></Button>
     </Flex>
   );

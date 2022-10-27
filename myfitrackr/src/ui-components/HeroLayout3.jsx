@@ -78,7 +78,7 @@ export default function HeroLayout3(props) {
           <Text
             fontFamily="Inter"
             fontSize="24px"
-            fontWeight="400"
+            fontWeight="600"
             color="rgba(255,255,255,1)"
             lineHeight="30px"
             textAlign="center"
