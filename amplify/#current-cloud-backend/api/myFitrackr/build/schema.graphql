@@ -1,0 +1,261 @@
+
+type MyfitrakrDBM @aws_iam @aws_cognito_user_pools @aws_api_key {
+  id: ID!
+  alias: String!
+  name: String!
+  age: Int!
+  workout: String!
+  count: Int!
+  fitgroup: String!
+  image: String!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+  owner: String
+}
+
+input ModelStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelBooleanInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelSubscriptionStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  in: [String]
+  notIn: [String]
+}
+
+input ModelSubscriptionIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  in: [Int]
+  notIn: [Int]
+}
+
+input ModelSubscriptionFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  in: [Float]
+  notIn: [Float]
+}
+
+input ModelSubscriptionBooleanInput {
+  ne: Boolean
+  eq: Boolean
+}
+
+input ModelSubscriptionIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  in: [ID]
+  notIn: [ID]
+}
+
+enum ModelAttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
+input ModelSizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelMyfitrakrDBMConnection @aws_api_key @aws_iam @aws_cognito_user_pools {
+  items: [MyfitrakrDBM]!
+  nextToken: String
+  startedAt: AWSTimestamp
+}
+
+input ModelMyfitrakrDBMFilterInput {
+  id: ModelIDInput
+  alias: ModelStringInput
+  name: ModelStringInput
+  age: ModelIntInput
+  workout: ModelStringInput
+  count: ModelIntInput
+  fitgroup: ModelStringInput
+  image: ModelStringInput
+  and: [ModelMyfitrakrDBMFilterInput]
+  or: [ModelMyfitrakrDBMFilterInput]
+  not: ModelMyfitrakrDBMFilterInput
+}
+
+type Query {
+  getMyfitrakrDBM(id: ID!): MyfitrakrDBM @aws_api_key @aws_iam @aws_cognito_user_pools
+  listMyfitrakrDBMS(filter: ModelMyfitrakrDBMFilterInput, limit: Int, nextToken: String): ModelMyfitrakrDBMConnection @aws_api_key @aws_iam @aws_cognito_user_pools
+  syncMyfitrakrDBMS(filter: ModelMyfitrakrDBMFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelMyfitrakrDBMConnection @aws_api_key @aws_iam @aws_cognito_user_pools
+}
+
+input ModelMyfitrakrDBMConditionInput {
+  alias: ModelStringInput
+  name: ModelStringInput
+  age: ModelIntInput
+  workout: ModelStringInput
+  count: ModelIntInput
+  fitgroup: ModelStringInput
+  image: ModelStringInput
+  and: [ModelMyfitrakrDBMConditionInput]
+  or: [ModelMyfitrakrDBMConditionInput]
+  not: ModelMyfitrakrDBMConditionInput
+}
+
+input CreateMyfitrakrDBMInput {
+  id: ID
+  alias: String!
+  name: String!
+  age: Int!
+  workout: String!
+  count: Int!
+  fitgroup: String!
+  image: String!
+  _version: Int
+}
+
+input UpdateMyfitrakrDBMInput {
+  id: ID!
+  alias: String
+  name: String
+  age: Int
+  workout: String
+  count: Int
+  fitgroup: String
+  image: String
+  _version: Int
+}
+
+input DeleteMyfitrakrDBMInput {
+  id: ID!
+  _version: Int
+}
+
+type Mutation {
+  createMyfitrakrDBM(input: CreateMyfitrakrDBMInput!, condition: ModelMyfitrakrDBMConditionInput): MyfitrakrDBM @aws_api_key @aws_iam @aws_cognito_user_pools
+  updateMyfitrakrDBM(input: UpdateMyfitrakrDBMInput!, condition: ModelMyfitrakrDBMConditionInput): MyfitrakrDBM @aws_api_key @aws_iam @aws_cognito_user_pools
+  deleteMyfitrakrDBM(input: DeleteMyfitrakrDBMInput!, condition: ModelMyfitrakrDBMConditionInput): MyfitrakrDBM @aws_api_key @aws_iam @aws_cognito_user_pools
+}
+
+input ModelSubscriptionMyfitrakrDBMFilterInput {
+  id: ModelSubscriptionIDInput
+  alias: ModelSubscriptionStringInput
+  name: ModelSubscriptionStringInput
+  age: ModelSubscriptionIntInput
+  workout: ModelSubscriptionStringInput
+  count: ModelSubscriptionIntInput
+  fitgroup: ModelSubscriptionStringInput
+  image: ModelSubscriptionStringInput
+  and: [ModelSubscriptionMyfitrakrDBMFilterInput]
+  or: [ModelSubscriptionMyfitrakrDBMFilterInput]
+}
+
+type Subscription {
+  onCreateMyfitrakrDBM(filter: ModelSubscriptionMyfitrakrDBMFilterInput, owner: String): MyfitrakrDBM @aws_subscribe(mutations: ["createMyfitrakrDBM"]) @aws_api_key @aws_iam @aws_cognito_user_pools
+  onUpdateMyfitrakrDBM(filter: ModelSubscriptionMyfitrakrDBMFilterInput, owner: String): MyfitrakrDBM @aws_subscribe(mutations: ["updateMyfitrakrDBM"]) @aws_api_key @aws_iam @aws_cognito_user_pools
+  onDeleteMyfitrakrDBM(filter: ModelSubscriptionMyfitrakrDBMFilterInput, owner: String): MyfitrakrDBM @aws_subscribe(mutations: ["deleteMyfitrakrDBM"]) @aws_api_key @aws_iam @aws_cognito_user_pools
+}
+

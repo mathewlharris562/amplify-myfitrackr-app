@@ -1,0 +1,122 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-myfitrackr-staging-154456-authRole",
+      "UnauthRoleArn": "arn:aws:iam::617050463594:role/amplify-myfitrackr-staging-154456-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::617050463594:role/amplify-myfitrackr-staging-154456-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-myfitrackr-staging-154456-deployment",
+      "UnauthRoleName": "amplify-myfitrackr-staging-154456-unauthRole",
+      "StackName": "amplify-myfitrackr-staging-154456",
+      "StackId": "arn:aws:cloudformation:us-east-1:617050463594:stack/amplify-myfitrackr-staging-154456/cf8cd1f0-53b2-11ed-ae7e-12b98d98bcb1",
+      "AmplifyAppId": "d1aszk9ozv7tz9"
+    }
+  },
+  "api": {
+    "myFitrackr": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "myFitrackr",
+          "attributes": [
+            "UserPoolId"
+          ]
+        }
+      ],
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
+            }
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            },
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authmyFitrackr"
+              }
+            }
+          ]
+        },
+        "GraphQLAPIIdOutput": "zem4l7dt5jdodgeg2cz3v7oxri",
+        "GraphQLAPIEndpointOutput": "https://hl7tdaveqncy3alqbjdsx6rbum.appsync-api.us-east-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-y5eygjprjjh7xnxp5ixqvu5vsu"
+      },
+      "lastPushTimeStamp": "2022-10-27T17:33:37.901Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-myfitrackr-staging-154456-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apimyFitrackr"
+      }
+    }
+  },
+  "auth": {
+    "myFitrackr": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "signupAttributes": [
+          "NAME",
+          "EMAIL",
+          "PROFILE"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": [
+            "REQUIRES_LOWERCASE"
+          ]
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "output": {
+        "UserPoolId": "us-east-1_VUJQSxf3X",
+        "AppClientIDWeb": "tss4dgfdg62nu0e2q39lts7r6",
+        "AppClientID": "gp4fatb8pqddi2d7bahhll729",
+        "IdentityPoolId": "us-east-1:0a0e26a1-3b5d-45d9-bdb5-5437fc83b73d",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:617050463594:userpool/us-east-1_VUJQSxf3X",
+        "IdentityPoolName": "testAuthIdentityPool__staging",
+        "UserPoolName": "myFitrackr"
+      },
+      "lastPushTimeStamp": "2022-10-27T17:33:37.948Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-myfitrackr-staging-154456-deployment/amplify-cfn-templates/auth/myFitrackr-cloudformation-template.json",
+        "logicalId": "authmyFitrackr"
+      },
+      "lastPushDirHash": "Ck3RdB54Ocv0ciRWIO2NXnYV/bY="
+    }
+  },
+  "storage": {
+    "s3myfitrackrstorageamplify": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "lastPushTimeStamp": "2022-10-27T17:33:37.948Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-myfitrackr-staging-154456-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
+        "logicalId": "storages3myfitrackrstorageamplify"
+      },
+      "output": {
+        "BucketName": "myfitrackr-storage-amplify154456-staging",
+        "Region": "us-east-1"
+      },
+      "lastPushDirHash": "AfkMzJy6H+FEzFoYjM0b7BAk/IE="
+    }
+  }
+}

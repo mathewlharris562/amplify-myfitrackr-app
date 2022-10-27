@@ -1,0 +1,11 @@
+type MyfitrakrDBM @model @auth(rules: [{allow: public}, {allow: owner}]) {
+  id: ID!
+  alias: String!
+  name: String!
+  age: Int!
+  workout: String!
+  count: Int!
+  fitgroup: String!
+  image: String!
+}
+ 
